@@ -17,16 +17,18 @@ libraryDependencies ++= Seq(
   "org.specs2"        %% "specs2-core" % "3.8.4" % "test")
 
 publishTo <<= version { (v: String) =>
-  val path = if(v.trim.endsWith("SNAPSHOT")) "snapshots-public" else "releases-public"
-  Some(Resolver.url("Lunatech Artifactory", new URL("http://artifactory.lunatech.com/artifactory/%s/" format path)))
+  val path = if(v.trim.endsWith("SNAPSHOT")) "libs-snapshot-local" else "libs-release-local"
+  Some(Resolver.url("Artifactory Realm", new URL("http://poin1-build6.pointlogic.nl:8081/artifactory/%s/" format path)))
 }
 
-site.settings
+//site.settings
 
-site.includeScaladoc()
+//site.includeScaladoc()
 
-ghpages.settings
+//ghpages.settings
 
-git.remoteRepo := "git@github.com:lunatech-labs/play-json-evolutions.git"
+//git.remoteRepo := "git@github.com:lunatech-labs/play-json-evolutions.git"
 
-releaseSettings
+//releaseSettings
+
+credentials += Credentials(Path.userHome / ".ivy2" / ".credentials")
